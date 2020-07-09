@@ -12,7 +12,7 @@ if [ -d "$USB" ]; then
    if [ -d "$MUSIC" ]; then
       if [ "$( ls -A $USB/music)" ]; then
       echo "Transfering Music..."
-      cp -R $USB/music/* $MUSIC
+      rsync -ar --ignore-existing --human-readable  --info=progress2 $USB/music/* $MUSIC
       fi
    else
       echo "Error: ${MUSIC} not found. Can not continue."
@@ -21,7 +21,7 @@ if [ -d "$USB" ]; then
    if [ -d "$MOVIES" ]; then
       if [ "$( ls -A $USB/movies)" ]; then
       echo "Transfering Movies..."
-      cp -R $USB/movies/* $MOVIES
+      rsync -ar --ignore-existing --human-readable  --info=progress2 $USB/movies/* $MOVIES
       fi
    else
       echo "Error: ${MOVIES} not found. Can not continue."
@@ -30,7 +30,7 @@ if [ -d "$USB" ]; then
    if [ -d "$TVSHOWS" ]; then
       if [ "$( ls -A $USB/tv-shows)" ]; then
       echo "Transfering TV-shows..."
-      cp -R $USB/tv-shows/* $TVSHOWS
+      rsync -ar --ignore-existing --human-readable  --info=progress2 $USB/tv-shows/* $TVSHOWS
       fi
    else
       echo "Error: ${TVSHOWS} not found. Can not continue."
